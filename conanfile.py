@@ -13,9 +13,9 @@ class LibcurlConan(ConanFile):
     version = "7.64.1"
     description = "command line tool and library for transferring data with URLs"
     topics = ("conan", "libcurl", "data-transfer")
-    url = "http://github.com/bincrafters/conan-libcurl"
+    url = "http://github.com/zinnion/conan-libcurl"
     homepage = "http://curl.haxx.se"
-    author = "Bincrafters <bincrafters@gmail.com>"
+    author = "Zinnion <mauro@zinnion.com>"
     license = "MIT"
     exports = ["LICENSE.md"]
     exports_sources = ["lib_Makefile_add.am", "CMakeLists.txt"]
@@ -119,12 +119,12 @@ class LibcurlConan(ConanFile):
             elif self.settings.os == "Windows" and self.options.with_winssl:
                 pass
             else:
-                self.requires.add("OpenSSL/1.1.1b@conan/stable")
+                self.requires.add("OpenSSL/1.1.1b@zinnion/stable")
         if self.options.with_libssh2:
             if self.settings.compiler != "Visual Studio":
-                self.requires.add("libssh2/1.8.0@bincrafters/stable")
+                self.requires.add("libssh2/1.8.0@zinnion/stable")
 
-        self.requires.add("zlib/1.2.11@conan/stable")
+        self.requires.add("zlib/1.2.11@zinnion/stable")
 
     def source(self):
         source_url = "https://curl.haxx.se/download/"
